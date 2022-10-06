@@ -1,0 +1,13 @@
+yolo_model:
+
+  config_file:
+    name: yolov4-custom-dock.cfg
+  weight_file:
+    name: yolov4-custom-dock_1000.weights
+  threshold:
+    value: 0.75
+  detection_classes:
+    names:
+      - Red
+      - Green
+      - Blue

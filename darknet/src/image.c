@@ -415,6 +415,20 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
             if (alphabet) {
                 char labelstr[4096] = { 0 };
                 strcat(labelstr, names[selected_detections[i].best_class]);
+
+                // modify by bawkbak
+                strcat(labelstr, ": ");
+
+                int best_class = selected_detections[i].best_class;
+                int floor_thresh = (int)(selected_detections[i].det.prob[best_class] * 100);
+                char char_thresh[3];
+                sprintf(char_thresh, "%d", floor_thresh);
+
+                strcat(labelstr, char_thresh);
+
+                strcat(labelstr, "%");
+                // modify by bawkbak
+
                 int j;
                 for (j = 0; j < classes; ++j) {
                     if (selected_detections[i].det.prob[j] > thresh && j != selected_detections[i].best_class) {

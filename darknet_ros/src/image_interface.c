@@ -7,6 +7,7 @@
  */
 
 #include "darknet_ros/image_interface.h"
+#include <string.h>
 
 static float get_pixel(image m, int x, int y, int c)
 {
@@ -16,12 +17,15 @@ static float get_pixel(image m, int x, int y, int c)
 
 image **load_alphabet_with_file(char *datafile) {
   int i, j;
+
   const int nsize = 8;
   image **alphabets = calloc(nsize, sizeof(image));
   char* labels = "/labels/%d_%d.png";
-  char * files = (char *) malloc(1 + strlen(datafile)+ strlen(labels) );
+
+  char * files = (char *) malloc(1 + strlen(datafile) + strlen(labels));
   strcpy(files, datafile);
   strcat(files, labels);
+
   for(j = 0; j < nsize; ++j){
     alphabets[j] = calloc(128, sizeof(image));
     for(i = 32; i < 127; ++i){

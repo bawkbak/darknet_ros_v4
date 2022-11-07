@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+  
+  <!-- Use YOLOv3 -->
+  <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov4-sea.yaml"/>
+
+  <!-- <arg name="image" default="/wamv/zed_mid/zed_node/rgb/image_rect_color" /> -->
+  <arg name="image" default="zedm_forward/zed_node/rgb/image_rect_color/compressed" />
+
+  <!-- Include main launch file -->
+  <include file="$(find darknet_ros)/launch/darknet_ros.launch">
+    <arg name="network_param_file"    value="$(arg network_param_file)"/>
+    <arg name="image" value="$(arg image)" />
+  </include>
+
+</launch>

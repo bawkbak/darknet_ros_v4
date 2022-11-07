@@ -1,0 +1,14 @@
+yolo_model:
+
+  config_file:
+    name: yolov4-custom-sea.cfg
+  weight_file:
+    name: yolov4-custom-sea-800-100.weights
+  threshold:
+    value: 0.01
+  detection_classes:
+    names:
+      - G
+      - R
+      - W
+      - H

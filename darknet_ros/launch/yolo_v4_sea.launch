@@ -4,10 +4,15 @@
   
   <!-- Use YOLOv3 -->
   <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov4-sea.yaml"/>
+    
+    <!-- <arg name="forward_camera_topic" default="/zedm_forward/zed_node/rgb/image_rect_color"/>
 
-  <!-- <arg name="image" default="/wamv/zed_mid/zed_node/rgb/image_rect_color" /> -->
-  <arg name="image" default="zedm_forward/zed_node/rgb/image_rect_color/compressed" />
+    <arg name="downward_camera_topic" default="/d435_downward/color/image_raw"/>
 
+    <arg name="backward_camera_topic" default="/d435_backward/color/image_raw"/> -->
+
+  <!-- <arg name="image" default="/zedm_forward/zed_node/rgb/image_rect_color" /> -->
+  <arg name="image" default="desired_image/rgb" />
   <!-- Include main launch file -->
   <include file="$(find darknet_ros)/launch/darknet_ros.launch">
     <arg name="network_param_file"    value="$(arg network_param_file)"/>

@@ -3,7 +3,7 @@ yolo_model:
   config_file:
     name: yolov4-custom-sea.cfg
   weight_file:
-    name: yolov4-custom-sea-800-100.weights
+    name: yolov4-custom-land-1900.weights
   threshold:
     value: 0.1
   detection_classes:
